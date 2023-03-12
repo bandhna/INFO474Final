@@ -55,39 +55,6 @@ d3.select("#date-form").on("submit", function() {
   }));
 });
 
-  
-// //Load the precipitation data for each city within the date range
-// Promise.all(cities.map(function (city) {
-//   return d3.csv("../WeatherData/" + city.ABR + ".csv").then(function (precipitation) {
-//     city.precipitation = precipitation.filter(function(d) {
-//       var date = new Date(d.date);
-//       return date >= startDate && date <= endDate;
-//     });
-//     const averagePrecipitation = d3.mean(city.precipitation, function (d) {
-//       return parseFloat(d.average_precipitation);
-//     });
-//     var circle = L.circleMarker([city.lat, city.lon], {
-//       radius: averagePrecipitation * 100,
-//       fillColor: "blue",
-//     }).addTo(map);
-//     circle.bindPopup(`<b>${city.name}</b><br>Average precipitation (inches): ${averagePrecipitation.toFixed(2)}`);
-//   });
-// }));
-
-// //Load the precipitation data for each city
-// Promise.all(cities.map(function (city) {
-//   return d3.csv("../WeatherData/" + city.ABR + ".csv").then(function (precipitation) {
-//     city.precipitation = precipitation;
-//     const averagePrecipitation = d3.mean(precipitation, function (d) {
-//       return parseFloat(d.average_precipitation);
-//     });
-//     var circle = L.circleMarker([city.lat, city.lon], {
-//       radius: averagePrecipitation * 100,
-//       fillColor: "blue",
-//     }).addTo(map);
-//     circle.bindPopup(`<b>${city.name}</b><br>Average precipitation: ${averagePrecipitation} inches`);
-//   });
-// }));
 
 
 
