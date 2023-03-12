@@ -30,7 +30,7 @@
 
         #legend {
             position: fixed;
-            right: 600px;
+            right: 530px;
             background-color: white;
             border: 1px solid black;
             padding: 10px;
@@ -41,6 +41,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 5px;
+            padding-top: 20px;
         }
 
         .circle {
@@ -51,26 +52,33 @@
             background-color: rgba(0, 0, 255, 0.295);
             border: 3px solid blue;
         }
+
+        label {
+            padding: 10px;
+            font-weight: bold;
+        }
+        .legend-paragraph i {
+        font-size: 15px;
+        padding-bottom: 30px;
+       }
+        #date-form p {
+            padding-left: 10px;
+            font-size: 20px;
+        }
+       .legend-title {
+        font-size: 15px;
+       }
+
     </style>
 </head>
 
 <body>
 
-    <div id="map-title">Average Precipitation by City in the US</div>
-
-    <form id="date-form">
-        <label for="start-date">Start date:</label>
-        <input type="date" id="start-date" name="start-date" value="2014-07-01" min="2014-07-01" max="2015-06-30">
-        <br><br>
-        <label for="end-date">End date:</label>
-        <input type="date" id="end-date" name="end-date" value="2015-06-30" min="2014-07-01" max="2015-06-30">
-        <br><br>
-        <input type="submit" id="submit" value="Submit">
-      </form>
-      
-
+    <div id="map-title">Average Precipitation by City in the US</div>  
     <div id="legend">
-        <h4>Average Precipitation</h4>
+        <b class="legend-title">Average Precipitation</b>
+        <br></br>
+        <i class="legend-paragraph">Click a circle on the map for details</i>
         <div class="legend-item">
             <div class="circle" style="width: 3px; height: 3px;"></div>
             <span> &lt; 0.1 inches </span>
@@ -85,6 +93,15 @@
         </div>
     </div>
     <div id="map"></div>
+    
+    <form id="date-form">
+        <p>Select a date range to view the average precipitation for:</p>
+        <label for="start-date">Start date:</label>
+        <input type="date" id="start-date" name="start-date" value="2014-07-01" min="2014-07-01" max="2015-06-30"> 
+        <label for="end-date">End date:</label>
+        <input type="date" id="end-date" name="end-date" value="2015-06-30" min="2014-07-01" max="2015-06-30">
+        <input type="submit" id="submit" value="Update Map">
+      </form>
     <script src="../map.js"></script>
 
 </body>
