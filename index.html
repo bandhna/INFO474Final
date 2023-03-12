@@ -4,12 +4,89 @@
 <head>
     <meta charset="UTF-8">
     <title>US Map with Precipation per City</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="#">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script src='https://unpkg.com/topojson-client@3'></script>
+   <!-- leaflet code -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <style>
+        #map-title {
+            text-align: left;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-left: 130px;
+        }
+
+        #map {
+            height: 500px;
+            width: 700px;
+        }
+
+        #legend {
+            position: fixed;
+            right: 600px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            z-index: 999;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .circle {
+            display: inline-block;
+            margin-right: 10px;
+            border-radius: 50%;
+            fill-opacity: 0.2;
+            background-color: rgba(0, 0, 255, 0.295);
+            border: 3px solid blue;
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="map-title">Average Precipitation by City in the US</div>
+
+    <form id="date-form">
+        <label for="start-date">Start date:</label>
+        <input type="date" id="start-date" name="start-date" value="2014-07-01" min="2014-07-01" max="2015-06-30">
+        <br><br>
+        <label for="end-date">End date:</label>
+        <input type="date" id="end-date" name="end-date" value="2015-06-30" min="2014-07-01" max="2015-06-30">
+        <br><br>
+        <input type="submit" id="submit" value="Submit">
+      </form>
+      
+
+    <div id="legend">
+        <h4>Average Precipitation</h4>
+        <div class="legend-item">
+            <div class="circle" style="width: 3px; height: 3px;"></div>
+            <span> &lt; 0.1 inches </span>
+        </div>
+        <div class="legend-item">
+            <div class="circle" style="width: 15px; height: 15px;"></div>
+            <span>0.1 - 0.2 inches</span>
+        </div>
+        <div class="legend-item">
+            <div class="circle" style="width: 27px; height: 27px;"></div>
+            <span>&gt; 0.2 inches</span>
+        </div>
+    </div>
+    <div id="map"></div>
+    <script src="../map.js"></script>
+
 </body>
-<script src="https://d3js.org/d3.v5.min.js"></script>
-<script src="./map.js"></script>
 
 </html>

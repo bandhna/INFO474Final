@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "d3-geo-projection": "^4.0.0",
+    "leaflet-range": "^0.1.5"
+  }
+}
